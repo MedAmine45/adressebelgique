@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AdresseBelgique.Models.Localite>
+
+@{
+    ViewBag.Title = "AllLocalites";
+}
+
+<h2>les localites</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">la liste des localites </div>
+        <div class="panel-body">
+            <div>
+                <form method="post" asp-action="Search">
+                    <div class="form-group">
+                        <input type="text" name="keyword" id="myInput" placeholder="filtrer par mot clé.." class="form-control" />
+                    </div>
+                </form>
+            </div>
+
+            <table class="table table-hover table-condensed table-striped ">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Localitenom)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Commune)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cps)
+                        </th>
+
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+            <tbody id="myTable">
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Localitenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Commune)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cps)
+                    </td>
+
+                </tr>
+            </tbody>
+            }
+
+
+                    
+
+
+                </table>
+        </div>
+
+        </div>
+
+
+
+</div>
+

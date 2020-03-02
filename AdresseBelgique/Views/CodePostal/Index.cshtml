@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AdresseBelgique.Models.Rue>
+@{
+    ViewBag.Title = "GetRues";
+}
+
+<h2>les rues</h2>
+
+<div class="container ">
+    <div class="panel panel-primary">
+        <div class="panel-heading">la liste des rues </div>
+        <div class="panel-body">
+            <div>
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group">
+                        <label>Code Postal :</label>
+                        <input type="text" name="codepostal" placeholder="donnez  un code postal" class="form-control" />
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="afficher" id="btn-submit" />
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <input type="text" name="keyword" id="myInput" placeholder="filtrer par mot clé.." class="form-control" />
+                    </div>
+                }
+            </div>
+            <div>
+                <table class="table table-hover table-condensed table-striped ">
+                    <thead>
+                        <tr>
+                            <th> nom de la rue</th>
+                            <th>Code postal</th>
+                            <th>Commune</th>
+                            <th>localite</th>
+                        </tr>
+
+                    </thead>
+                    @foreach (var rue in Model)
+                    {
+                        <tbody id="myTable">
+                            <tr>
+                                <td>
+                                    @rue.NomRue
+                                </td>
+                                <td>
+                                    @rue.Cps
+                                </td>
+                                <td>
+                                    @rue.Commune
+                                </td>
+                                <td>
+                                    @rue.Localite
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
